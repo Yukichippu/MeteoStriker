@@ -8,34 +8,57 @@ using UnityEngine.UI;
 public class Missile_Gage : MonoBehaviour
 {
     [SerializeField] Slider MissileGage; //UIのSliderをUnity内で挿入
+    [SerializeField] private Text valuetext; // 現在のチャージ率を表示するText
 
-    float missilePoint; //ゲージの値(現在の値)
-    float maxMissilePoint = 1; //ゲージの最大値
-    float waitSeconds = 0.2f; //リキャストタイム(1までに0.2につき1秒かかる)
-    public Text valuetext;
+    [SerializeField] private Bomb bomb;  // 
+
+    float chargeTime = 5f;
+    float currentTime = 0f;
+    bool isMaxGauge = false;
 
     void Start()
     {
-        missilePoint = maxMissilePoint;
-        MissileGage.maxValue = maxMissilePoint;
+        currentTime = chargeTime; // ゲーム開始時はミサイルを打てるように
+        MissileGage.maxValue = chargeTime;
     }
 
     void Update()
     {
         //マウスの左クリックが押されるかつ、ゲージの現在の値が最大値以上のときに現在の値を"0"にする
-        if(Input.GetMouseButton(0) && missilePoint >= maxMissilePoint)
+        if(Input.GetMouseButton(0) && isMaxGauge)
         {
-            missilePoint = 0;
-            Debug.Log("nice click");
+            currentTime = 0f;
+            isMaxGauge = false;
+            bomb.ShootBomb();
         }
-        //リキャストタイムの計算
-        missilePoint += waitSeconds * Time.deltaTime;
-        //現在の値をオブジェクトのValueに代入
-        MissileGage.value = missilePoint;
+        MissileCharge();
+    }
 
-        if(missilePoint <= maxMissilePoint)
+    private void MissileCharge()
+    {
+        if(isMaxGauge) { return; }
+
+        if(currentTime >= chargeTime)
         {
-            valuetext.text = missilePoint.ToString("00") + "%";
+            currentTime = chargeTime;
+            isMaxGauge = true;
+        }
+        else
+        {
+            //リキャストタイムの計算
+            currentTime += Time.deltaTime;
+        }
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        //現在の値をオブジェクトのValueに代入
+        MissileGage.value = currentTime;
+
+        if (currentTime < chargeTime)
+        {
+            valuetext.text = (currentTime/chargeTime * 100f).ToString("00") + "%";
         }
         else
         {

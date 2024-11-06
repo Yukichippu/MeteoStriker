@@ -45,52 +45,7 @@ public class Bullet : MonoBehaviour
         GameObject ball = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
 
         // 弾に向かう方向と速度、消える最大距離を設定
-        ball.AddComponent<BallMovement>().SetDirectionAndSpeed(direction, BulletSpeed, maxDistance, transform.position);
+        ball.GetComponent<BallMovement>().SetDirectionAndSpeed(direction, BulletSpeed, maxDistance, transform.position);
     }
 }
 
-// 弾が指定された方向に進むクラス
-public class BallMovement : MonoBehaviour
-{
-    private Vector3 moveDirection; // 弾が進む方向
-    private float speed; // 弾の速度
-    private float maxDistance; // 弾が消える最大距離
-    private Vector3 spawnPosition; // 弾の発射位置
-
-    public void SetDirectionAndSpeed(Vector3 direction, float speed, float maxDistance, Vector3 spawnPosition)
-    {
-        this.moveDirection = direction;
-        this.speed = speed; // 初期速度をそのまま使用
-        this.maxDistance = maxDistance;
-        this.spawnPosition = spawnPosition;
-    }
-
-    void Update()
-    {
-        // 弾を方向に沿って移動
-        transform.position += moveDirection * speed * Time.deltaTime;
-
-        // 現在の位置と発射位置の距離を計算
-        float distanceFromSpawn = Vector3.Distance(transform.position, spawnPosition);
-
-        // 一定距離を超えたら弾を消す
-        if (distanceFromSpawn > maxDistance)
-        {
-            Destroy(gameObject); // 弾を削除
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // "Wall"タグのついたオブジェクトに衝突したら弾を削除
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            Destroy(gameObject); // 衝突した弾を削除
-        }
-        // "Bullet"タグのついたオブジェクトに衝突したら弾を削除
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            Destroy(gameObject); // 衝突した弾を削除
-        }
-    }
-}

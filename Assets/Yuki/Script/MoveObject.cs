@@ -1,18 +1,24 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    public float posY = 10;
+    private float posY = 10;
+    [SerializeField] private EnemySave enemySave;
+    [SerializeField] private GameObject border;
+
+    [SerializeField] private RectTransform player;
+
+    [SerializeField] private RectTransform start;
+    [SerializeField] private RectTransform end;
+
+    private void Start()
+    {
+        posY = enemySave.EnemyDatas[enemySave.EnemyDatas.Count - 1].position.y;
+    }
 
     void Update()
     {
-        Vector3 start = transform.position;
-        Vector3 target = new Vector3(0, posY, 0);
-        float timer = 0;
-        timer += Time.deltaTime;
-        transform.position = Vector3.MoveTowards(start, target, timer);
+        float step = border.transform.position.y / posY;
+        player.position = Vector3.Lerp(start.position, end.position, step);
     }
 }

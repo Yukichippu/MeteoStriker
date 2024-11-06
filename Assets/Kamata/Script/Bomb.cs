@@ -13,19 +13,19 @@ public class Bomb : MonoBehaviour
 
     void Update()
     {
-        // クールタイム中は爆弾を発射しない
-        if (Time.time > nextShootTime)
-        {
-            // 左クリックで爆弾を発射
-            if (Input.GetMouseButtonDown(0))
-            {
-                ShootBomb();
-                nextShootTime = Time.time + shootCooldown; // 次の発射時間を更新
-            }
-        }
+        //// クールタイム中は爆弾を発射しない
+        //if (Time.time > nextShootTime)
+        //{
+        //    // 左クリックで爆弾を発射
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        ShootBomb();
+        //        nextShootTime = Time.time + shootCooldown; // 次の発射時間を更新
+        //    }
+        //}
     }
 
-    void ShootBomb()
+    public void ShootBomb()
     {
         // マウスのスクリーン座標を取得
         Vector3 mousePosition = Input.mousePosition;

@@ -5,6 +5,6 @@ public class SceneChange_Clear : MonoBehaviour
 {
     public void PushButton()
     {
-        SceneManager.LoadScene("Title Scene");
+        SceneManager.LoadScene("Clear Scene");
     }
 }

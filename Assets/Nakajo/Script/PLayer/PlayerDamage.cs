@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class PlayerDamage : MonoBehaviour
 {
-    private float LifeCount = 3;//残機
+    private int LifeCount = 3;//残機
     private bool Invincible = false;//無敵かどうか
     private float InvincibleTime = 0;//無敵時間のカウント
     private Collider2D Col;
-    [Tooltip("無敵の時間")][SerializeField]private float InvincibleEnd = 1;
+    [Tooltip("無敵の時間")][SerializeField]private float InvincibleEnd = 1f;
 
-    [SerializeField] GameObject Hearts1;//1つ目のハート
-    [SerializeField] GameObject Hearts2;//２つ目のハート
-    [SerializeField] GameObject Hearts3;//３つ目のハート
-
+    [SerializeField] GameObject[] hearts;　//のハート
 
     void Start()
     {
@@ -28,14 +26,14 @@ public class PlayerDamage : MonoBehaviour
             Debug.Log("カウント開始");
             //無敵時間カウント開始
             InvincibleTime += Time.deltaTime;
+            EndInvincible();
         }
-        EndInvincible();
     }
 
     //エネミーに当たったら
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" && !Invincible)
         {
             Debug.Log("残機ー１");
             //残機-1
@@ -56,22 +54,22 @@ public class PlayerDamage : MonoBehaviour
         //コライダーをOFF
         if(Invincible == true)
         {
-            Col.enabled = false;
+            //Col.enabled = false;
         }
     }
 
     //無敵終了の関数
     private void EndInvincible()
     {
-            if (InvincibleTime > InvincibleEnd)
-            {
-                Debug.Log("無敵終了");
-                //無敵をOFF
-                Invincible = false;
-                //コライダーをON
-                Col.enabled = true;
-                InvincibleTime = 0;
-            }
+        if (InvincibleTime > InvincibleEnd)
+        {
+            Debug.Log("無敵終了");
+            //無敵をOFF
+            Invincible = false;
+            //コライダーをON
+            //Col.enabled = true;
+            InvincibleTime = 0;
+        }
     }
 
     //プレイヤーの死亡を判断する関数
@@ -86,18 +84,10 @@ public class PlayerDamage : MonoBehaviour
 
     private void PlayerLifeUI()
     {
-       
-        if(Hearts1 != null)
+        for(int i = 0; i < hearts.Length; i++)
         {
-            Destroy(Hearts1);
-        }
-        if(Hearts2 != null)
-        {
-            Destroy(Hearts2);
-        }
-        if (Hearts3 != null)
-        {
-            Destroy(Hearts3);
+            if(i + 1 <= LifeCount) hearts[i].gameObject.SetActive(true);
+            else hearts[i].gameObject.SetActive(false);
         }
     }
 }

@@ -2,20 +2,23 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    [SerializeField] private float Enemy_Shp = 1;//エネミーのHP
-    [SerializeField] private float Enemy_Mhp = 2;//エネミーのHP
-    [SerializeField] private float Enemy_Lhp = 3;//エネミーのHP
+    [SerializeField] private float Enemy_Shp;//エネミーのHP
+    [SerializeField] private float Enemy_Mhp;//エネミーのHP
+    [SerializeField] private float Enemy_Lhp;//エネミーのHP
+    [SerializeField] private float ExEnemy_hp;//爆発するエネミーのHP
     [SerializeField] private float speed = 0;//エネミーの基礎速度
     [SerializeField] private float acceleration = 0.1f;//エネミーの落下速度を徐々に早くさせる数値
     private GameObject Enemy_S;
     private GameObject Enemy_M;
     private GameObject Enemy_L;
+    private GameObject EXEnemy;
 
     private void Start()
     {
         Enemy_S = GameObject.Find("Enemy");
         Enemy_M = GameObject.Find("Enemy1");
         Enemy_L = GameObject.Find("Enemy2");
+        EXEnemy = GameObject.Find("ExEnemy");
     }
     void Update()
     {
@@ -41,6 +44,7 @@ public class EnemyMove : MonoBehaviour
                     Destroy(this.gameObject);
                 }
             }//小さい敵の消滅処理
+
             else if (this.gameObject == Enemy_M)
             {
                 --Enemy_Mhp;
@@ -49,6 +53,7 @@ public class EnemyMove : MonoBehaviour
                     Destroy(this.gameObject);
                 }
             }//中の敵の消滅処理
+
             else if (this.gameObject == Enemy_L)
             {
                 --Enemy_Lhp;
@@ -56,10 +61,22 @@ public class EnemyMove : MonoBehaviour
                 {
                     Destroy(this.gameObject);
                 }
-            }//大きい敵の消滅処理
+            }//大きい敵の消滅処
             else
             { }
         }//弾に当たった時に消える処理
+
+        if(this.gameObject.CompareTag("Bomb"))
+        {
+            if (this.gameObject == EXEnemy)
+             {
+                --ExEnemy_hp;
+                if (ExEnemy_hp == 0)
+                {
+                    Destroy(this.gameObject);
+                }
+             }//爆弾でしか倒せない敵の消滅処理
+        }
 
         if (collision.gameObject.CompareTag("Player"))
         {

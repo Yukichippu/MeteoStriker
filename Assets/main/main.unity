@@ -306,6 +306,8 @@ MonoBehaviour:
     enemyPrefab: {fileID: 1594396217748263073, guid: e77de46db24a15b4f88332b4fa9fca3e, type: 3}
   - position: {x: 2.1, y: 390.97998, z: 0}
     enemyPrefab: {fileID: 4542874383535204912, guid: 895b7c64fcfb1ab4faea4b00532efafc, type: 3}
+  - position: {x: 2.1, y: 390.97998, z: 0}
+    enemyPrefab: {fileID: 5960185917770861815, guid: 85799347fe8cf6e49be1680e8118197b, type: 3}
 --- !u!4 &42938396
 Transform:
   m_ObjectHideFlags: 0

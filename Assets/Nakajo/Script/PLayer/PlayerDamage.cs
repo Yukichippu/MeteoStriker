@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerDamage : MonoBehaviour
 {
-    private int LifeCount = 3;//残機
-    private bool Invincible = false;//無敵かどうか
-    private float InvincibleTime = 0;//無敵時間のカウント
-    private Collider2D Col;
+    private int LifeCount = 3;          //残機
+    private bool Invincible = false;    //無敵かどうか
+    private float InvincibleTime = 0;   //無敵時間のカウント
+    private Collider2D Col;             //コライダーの取得
+    private double time;
     [Tooltip("無敵の時間")][SerializeField]private float InvincibleEnd = 1f;
-
-    [SerializeField] GameObject[] hearts;　//のハート
+    [SerializeField] GameObject[] hearts;//のハート
+    [SerializeField] private SpriteRenderer target;// 点滅させる対象
+    [SerializeField] private float cycle = 1;// 点滅周期[s]
 
     void Start()
     {
@@ -24,9 +27,16 @@ public class PlayerDamage : MonoBehaviour
         if (Invincible == true)
         {
             //Debug.Log("カウント開始");
-            //無敵時間カウント開始
             InvincibleTime += Time.deltaTime;
             EndInvincible();
+
+            // 内部時刻を経過させる
+            time += Time.deltaTime;
+            if(time >= cycle)
+            {
+                target.enabled = !target.enabled;
+                time = 0f;
+            }
         }
     }
 
@@ -36,12 +46,11 @@ public class PlayerDamage : MonoBehaviour
         if (other.gameObject.tag == "Enemy" && !Invincible)
         {
             //Debug.Log("残機ー１");
-            //残機-1
             LifeCount -= 1;
             PlayerLifeUI();
             //無敵関数呼び出し
             StartInvincible();
-            DeadPlayer();
+            //DeadPlayer();
         }
     }
 
@@ -49,12 +58,11 @@ public class PlayerDamage : MonoBehaviour
     private void StartInvincible()
     {
         //Debug.Log("無敵開始");
-        //無敵をON
         Invincible = true;
         //コライダーをOFF
         if(Invincible == true)
         {
-            //Col.enabled = false;
+            Col.enabled = false;
         }
     }
 
@@ -64,14 +72,14 @@ public class PlayerDamage : MonoBehaviour
         if (InvincibleTime > InvincibleEnd)
         {
             //Debug.Log("無敵終了");
-            //無敵をOFF
+            target.enabled = true;
             Invincible = false;
             //コライダーをON
-            //Col.enabled = true;
+            Col.enabled = true;
             InvincibleTime = 0;
         }
     }
-
+   
     //プレイヤーの死亡を判断する関数
     private void DeadPlayer()
     {

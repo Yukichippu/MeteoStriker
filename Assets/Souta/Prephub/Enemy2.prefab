@@ -102,8 +102,16 @@ MonoBehaviour:
   Enemy_Shp: 1
   Enemy_Mhp: 2
   Enemy_Lhp: 3
+  ExEnemy_hp: 0
+  hpList:
+  - 1
+  - 2
+  - 3
+  - 1
+  currentHP: 0
   speed: 3
   acceleration: 0.1
+  enemyType: 2
 --- !u!50 &-523100488713582142
 Rigidbody2D:
   serializedVersion: 4

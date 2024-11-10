@@ -39,18 +39,18 @@ public class BallMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hit: " + collision.gameObject.tag);
+        //Debug.Log("Hit: " + collision.gameObject.tag);
         // "Wall"タグのついたオブジェクトに衝突したら弾を削除
         if (collision.gameObject.CompareTag("Wall"))
         {
 
             Destroy(gameObject); // 衝突した弾を削除
         }
-        // "Bullet"タグのついたオブジェクトに衝突したら弾を削除
+        // "Enemy"タグのついたオブジェクトに衝突したら弾を削除
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
-            Destroy(gameObject); // 衝突した弾を削除
+            Destroy(this.gameObject);
+            //Destroy(gameObject); // 衝突した弾を削除
         }
     }
 }

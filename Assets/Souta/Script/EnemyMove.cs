@@ -1,11 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private float[] hpList;
     [SerializeField] private float currentHP;
-    [SerializeField] private float speed = 0;//エネミーの基礎速度
+    [SerializeField] private float speed;//エネミーの基礎速度
     [SerializeField] private float acceleration = 0.1f;//エネミーの落下速度を徐々に早くさせる数値
+    [SerializeField] private float DeadPos = -6f;
     private enum EnemyType
     {
         S,
@@ -25,6 +27,11 @@ public class EnemyMove : MonoBehaviour
         speed += acceleration * Time.deltaTime;
         pos.y -= speed * Time.deltaTime;
         transform.position = pos;
+
+        if(transform.position.y < DeadPos)
+        {
+            Destroy(this.gameObject);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

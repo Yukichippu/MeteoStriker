@@ -63,7 +63,7 @@ public class BombExplosion : MonoBehaviour
     //触れたエネミーを削除
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("オブジェクトを破壊しました");
+        //Debug.Log("オブジェクトを破壊しました");
         if (other.gameObject.tag == "Enemy")
         {
             isColliding = true;

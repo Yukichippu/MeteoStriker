@@ -43,7 +43,7 @@ public class MissileExplosition : MonoBehaviour
             DestroyCount += Time.deltaTime;
             if (DestroyCount > 10f)
             {
-                Debug.Log("íœ");
+                //Debug.Log("íœ");
                 Destroy(this.gameObject);
             }
         }

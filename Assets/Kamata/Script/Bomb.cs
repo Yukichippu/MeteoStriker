@@ -11,6 +11,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float nextShootTime = 0f; // 次に爆弾を生成する時間
     [SerializeField] private float YPosition = 200f; // マウスのY座標の下限値
 
+
     void Update()
     {
         //// クールタイム中は爆弾を発射しない
@@ -73,11 +74,14 @@ public class BombMovement : MonoBehaviour
 {
     private Vector3 spawnPosition; // 爆弾が発射された位置
     private float maxDistance; // 爆弾が消える最大距離
+   // [SerializeField] private float angle;
 
     public void Initialize(Vector3 spawnPosition, float maxDistance)
     {
         this.spawnPosition = spawnPosition;
         this.maxDistance = maxDistance;
+        //angle = Mathf.Atan2(spawnPosition.y, spawnPosition.x);
+        //transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle * Mathf.Rad2Deg - 90f));
     }
 
     void Update()

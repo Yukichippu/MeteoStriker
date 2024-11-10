@@ -23,7 +23,7 @@ public class PlayerDamage : MonoBehaviour
     {
         if (Invincible == true)
         {
-            Debug.Log("カウント開始");
+            //Debug.Log("カウント開始");
             //無敵時間カウント開始
             InvincibleTime += Time.deltaTime;
             EndInvincible();
@@ -35,7 +35,7 @@ public class PlayerDamage : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy" && !Invincible)
         {
-            Debug.Log("残機ー１");
+            //Debug.Log("残機ー１");
             //残機-1
             LifeCount -= 1;
             PlayerLifeUI();
@@ -48,7 +48,7 @@ public class PlayerDamage : MonoBehaviour
     //無敵開始の関数
     private void StartInvincible()
     {
-        Debug.Log("無敵開始");
+        //Debug.Log("無敵開始");
         //無敵をON
         Invincible = true;
         //コライダーをOFF
@@ -63,7 +63,7 @@ public class PlayerDamage : MonoBehaviour
     {
         if (InvincibleTime > InvincibleEnd)
         {
-            Debug.Log("無敵終了");
+            //Debug.Log("無敵終了");
             //無敵をOFF
             Invincible = false;
             //コライダーをON

@@ -2,23 +2,22 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    [SerializeField] private float Enemy_Shp;//エネミーのHP
-    [SerializeField] private float Enemy_Mhp;//エネミーのHP
-    [SerializeField] private float Enemy_Lhp;//エネミーのHP
-    [SerializeField] private float ExEnemy_hp;//爆発するエネミーのHP
+    [SerializeField] private float[] hpList;
+    [SerializeField] private float currentHP;
     [SerializeField] private float speed = 0;//エネミーの基礎速度
     [SerializeField] private float acceleration = 0.1f;//エネミーの落下速度を徐々に早くさせる数値
-    private GameObject Enemy_S;
-    private GameObject Enemy_M;
-    private GameObject Enemy_L;
-    private GameObject EXEnemy;
+    private enum EnemyType
+    {
+        S,
+        M,
+        L,
+        EX,
+    }
+    [SerializeField] EnemyType enemyType = EnemyType.S;
 
     private void Start()
     {
-        Enemy_S = GameObject.Find("Enemy");
-        Enemy_M = GameObject.Find("Enemy1");
-        Enemy_L = GameObject.Find("Enemy2");
-        EXEnemy = GameObject.Find("ExEnemy");
+        currentHP = hpList[(int)enemyType];
     }
     void Update()
     {
@@ -27,7 +26,7 @@ public class EnemyMove : MonoBehaviour
         pos.y -= speed * Time.deltaTime;
         transform.position = pos;
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bomb"))
         {
@@ -36,42 +35,24 @@ public class EnemyMove : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            if (this.gameObject == Enemy_S)
+            if (enemyType == EnemyType.EX)
             {
-                --Enemy_Shp;
-                if (Enemy_Shp == 0)
-                {
-                    Destroy(this.gameObject);
-                }
-            }//小さい敵の消滅処理
-
-            else if (this.gameObject == Enemy_M)
+                return;
+            }
+                currentHP--;
+            if(currentHP == 0)
             {
-                --Enemy_Mhp;
-                if (Enemy_Mhp == 0)
-                {
-                    Destroy(this.gameObject);
-                }
-            }//中の敵の消滅処理
-
-            else if (this.gameObject == Enemy_L)
-            {
-                --Enemy_Lhp;
-                if (Enemy_Lhp == 0)
-                {
-                    Destroy(this.gameObject);
-                }
-            }//大きい敵の消滅処
-            else
-            { }
+                Destroy(this.gameObject);
+            }
+           
         }//弾に当たった時に消える処理
 
         if(this.gameObject.CompareTag("Bomb"))
         {
-            if (this.gameObject == EXEnemy)
+            if (enemyType == EnemyType.EX)
              {
-                --ExEnemy_hp;
-                if (ExEnemy_hp == 0)
+                currentHP--;
+                if (currentHP == 0)
                 {
                     Destroy(this.gameObject);
                 }

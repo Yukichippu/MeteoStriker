@@ -78,7 +78,7 @@ public class PlayerDamage : MonoBehaviour
         if (LifeCount == 0)
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("GameOver Scene");
         }
     }
 

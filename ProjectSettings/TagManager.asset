@@ -48,12 +48,12 @@ TagManager:
   - name: Player
     uniqueID: 4107998985
     locked: 0
-  - name: Main
-    uniqueID: 2641770847
-    locked: 0
   - name: Bulleet
     uniqueID: 777101685
     locked: 0
   - name: Bomb
     uniqueID: 1923011457
+    locked: 0
+  - name: Main
+    uniqueID: 2641770847
     locked: 0

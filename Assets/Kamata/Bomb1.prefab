@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5056085096254918666}
   - component: {fileID: 4899692768404749486}
   - component: {fileID: 5500701398301862064}
+  - component: {fileID: -490762513302562568}
   m_Layer: 0
   m_Name: Bomb1
   m_TagString: Bomb
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1243128221
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 67e1b7df2c6227e4e8af944071f8a037, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -170,3 +171,16 @@ PolygonCollider2D:
       - {x: 0.32281333, y: -0.32532153}
       - {x: 0.22999999, y: -0.31}
   m_UseDelaunayMesh: 0
+--- !u!114 &-490762513302562568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512914975158641053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e422e8541299642b7933c8329d5f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpMissile: {fileID: 6047731700825997992, guid: ddd46135ecf3bc24ea234b5de68f8a85, type: 3}

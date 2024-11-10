@@ -49,14 +49,14 @@ public class MissileExplosition : MonoBehaviour
         }
     }
 
-    //エネミーとの接触を判断して削除
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("オブジェクトを破壊しました");
-        if (other.gameObject.tag == "Enemy")
-        {
-            isColliding = true;
-            Destroy(other.gameObject);
-        }
-    }
+    ////エネミーとの接触を判断して削除
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    Debug.Log("オブジェクトを破壊しました");
+    //    if (other.gameObject.tag == "Enemy")
+    //    {
+    //        isColliding = true;
+    //        Destroy(other.gameObject);
+    //    }
+    //}
 }

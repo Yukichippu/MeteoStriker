@@ -138,7 +138,7 @@ MonoBehaviour:
   Enemy_Mhp: 2
   Enemy_Lhp: 3
   ExEnemy_hp: 1
-  speed: 0
+  speed: 3
   acceleration: 0.1
 --- !u!50 &-1763854427787593168
 Rigidbody2D:

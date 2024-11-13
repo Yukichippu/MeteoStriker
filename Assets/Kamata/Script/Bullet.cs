@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
         // マウスのスクリーン座標を取得
         Vector3 mousePosition = Input.mousePosition;
 
-        // Y座標がminYPositionより下であれば制限する
+        // Y座標がYPositionより下であれば制限する
         if (mousePosition.y < YPosition)
         {
             mousePosition.y = YPosition;

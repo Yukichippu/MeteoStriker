@@ -54,6 +54,7 @@ public class Bomb : MonoBehaviour
         // 爆弾を生成
         GameObject bomb = Instantiate(bombPrefab, shootPosition, Quaternion.identity);
 
+
         // 爆弾に力を加えてマウスの方向に発射
         Rigidbody2D rb = bomb.GetComponent<Rigidbody2D>();
 
@@ -65,6 +66,7 @@ public class Bomb : MonoBehaviour
 
         // BombMovement スクリプトを追加して、距離や壁に当たった場合の削除処理を行う
         bomb.AddComponent<BombMovement>().Initialize(shootPosition, maxDistance);
+
     }
 }
 
@@ -79,8 +81,9 @@ public class BombMovement : MonoBehaviour
     {
         this.spawnPosition = spawnPosition;
         this.maxDistance = maxDistance;
-        angle = Mathf.Atan2(spawnPosition.y, spawnPosition.x);
-        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle * Mathf.Rad2Deg +80f));
+        Vector3 dist = Input.mousePosition - spawnPosition;
+        angle = Mathf.Atan2(dist.y, dist.x);
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle * Mathf.Rad2Deg - 90f));
     }
 
     void Update()

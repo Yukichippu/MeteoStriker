@@ -8,7 +8,6 @@ public class Bomb : MonoBehaviour
     [SerializeField] public float bombSpeed = 10f; // ”š’e‚Ì‘¬“x
     [SerializeField] public float shootCooldown = 0.5f; //”š’e‚Ì”­ËŠÔŠu
     [SerializeField] public float maxDistance = 15f; // ”š’e‚ªÁ‚¦‚éÅ‘å‹——£
-    [SerializeField] private float nextShootTime = 0f; // Ÿ‚É”š’e‚ğ¶¬‚·‚éŠÔ
     [SerializeField] private float YPosition = 200f; // ƒ}ƒEƒX‚ÌYÀ•W‚Ì‰ºŒÀ’l
 
 
@@ -74,14 +73,14 @@ public class BombMovement : MonoBehaviour
 {
     private Vector3 spawnPosition; // ”š’e‚ª”­Ë‚³‚ê‚½ˆÊ’u
     private float maxDistance; // ”š’e‚ªÁ‚¦‚éÅ‘å‹——£
-   // [SerializeField] private float angle;
+    [SerializeField] private float angle;
 
     public void Initialize(Vector3 spawnPosition, float maxDistance)
     {
         this.spawnPosition = spawnPosition;
         this.maxDistance = maxDistance;
-        //angle = Mathf.Atan2(spawnPosition.y, spawnPosition.x);
-        //transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle * Mathf.Rad2Deg - 90f));
+        angle = Mathf.Atan2(spawnPosition.y, spawnPosition.x);
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle * Mathf.Rad2Deg -90f));
     }
 
     void Update()

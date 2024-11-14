@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - Enemy1
   - Enemy2
+  - Goal
   layers:
   - Default
   - TransparentFX

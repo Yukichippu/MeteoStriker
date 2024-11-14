@@ -170,6 +170,8 @@ MonoBehaviour:
   currentHP: 1
   speed: 3
   acceleration: 0.1
+  DeadPos: -6
+  PlayerEXP: {fileID: 5209995237759202088, guid: 55003c5133bc35444b968af66572e289, type: 3}
   enemyType: 0
 --- !u!60 &4669374008657892883
 PolygonCollider2D:

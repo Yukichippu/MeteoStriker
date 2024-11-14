@@ -10,7 +10,7 @@ public class PlayerDamage : MonoBehaviour
     private int LifeCount = 3;          //残機
     private bool Invincible = false;    //無敵かどうか
     private float InvincibleTime = 0;   //無敵時間のカウント
-    private Collider2D Col;             //コライダーの取得
+    private PolygonCollider2D Col;             //コライダーの取得
     private double time;
     [Tooltip("無敵の時間")][SerializeField]private float InvincibleEnd = 1f;
     [SerializeField] GameObject[] hearts;//のハート
@@ -19,7 +19,7 @@ public class PlayerDamage : MonoBehaviour
 
     void Start()
     {
-        Col = GetComponent<Collider2D>();
+        Col = GetComponent<PolygonCollider2D>();
     }
 
     void Update()
@@ -76,6 +76,7 @@ public class PlayerDamage : MonoBehaviour
             Invincible = false;
             //コライダーをON
             Col.enabled = true;
+            time = 0f;
             InvincibleTime = 0;
         }
     }

@@ -108,6 +108,8 @@ MonoBehaviour:
   currentHP: 0
   speed: 3
   acceleration: 0.1
+  DeadPos: -6
+  PlayerEXP: {fileID: 5209995237759202088, guid: 55003c5133bc35444b968af66572e289, type: 3}
   enemyType: 2
 --- !u!50 &-523100488713582142
 Rigidbody2D:

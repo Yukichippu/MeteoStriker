@@ -108,6 +108,8 @@ MonoBehaviour:
   currentHP: 2
   speed: 3
   acceleration: 0.1
+  DeadPos: -6
+  PlayerEXP: {fileID: 5209995237759202088, guid: 55003c5133bc35444b968af66572e289, type: 3}
   enemyType: 1
 --- !u!58 &5703985548463128429
 CircleCollider2D:

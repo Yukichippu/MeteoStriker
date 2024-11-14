@@ -9,10 +9,10 @@ public class MouseTarget : MonoBehaviour
     [SerializeField] private Vector2 offset = new Vector2(10f, -10f); // マウス位置からのオフセット
 
     // カーソルの移動範囲（スクリーン座標で指定）
-    [SerializeField] private float minX = 100f;
-    [SerializeField] private float maxX = 500f;
-    [SerializeField] private float minY = 100f;
-    [SerializeField] private float maxY = 400f;
+    [SerializeField] private float minX;
+    [SerializeField] private float maxX;
+    [SerializeField] private float minY;
+    [SerializeField] private float maxY;
 
     void Start()
     {

@@ -792,6 +792,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1923011457
       objectReference: {fileID: 0}
+    - target: {fileID: 6847733386146667796, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
+      propertyPath: wideLength
+      value: 5.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7123016641944927289, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -98430,7 +98434,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772422474}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53f4c6f6cb87ccb4da4fb3afd0dcb370, type: 3}
   m_Name: 
@@ -98440,8 +98444,13 @@ MonoBehaviour:
   - {fileID: 1963429307}
   - {fileID: 467535177}
   - {fileID: 1698063887}
-  target: {fileID: 0}
+  target: {fileID: 1772422484}
   cycle: 1
+--- !u!212 &1772422484 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 735840622553349152, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
+  m_PrefabInstance: {fileID: 365061143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1821253329
 GameObject:
   m_ObjectHideFlags: 0

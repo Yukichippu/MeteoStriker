@@ -38,6 +38,8 @@ public class PlayerDamage : MonoBehaviour
                 time = 0f;
             }
         }
+
+        DeadPlayer();
     }
 
     //エネミーに当たったら
@@ -86,8 +88,8 @@ public class PlayerDamage : MonoBehaviour
     {
         if (LifeCount == 0)
         {
-            Destroy(this.gameObject);
             SceneManager.LoadScene("GameOver Scene");
+            Destroy(this.gameObject);
         }
     }
 

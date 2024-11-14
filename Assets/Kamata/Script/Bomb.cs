@@ -8,6 +8,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] public float bombSpeed = 10f; // 爆弾の速度
     [SerializeField] public float shootCooldown = 0.5f; //爆弾の発射間隔
     [SerializeField] public float maxDistance = 15f; // 爆弾が消える最大距離
+    [SerializeField] private float nextShootTime = 0f; // 次に爆弾を生成する時間
     [SerializeField] private float YPosition = 200f; // マウスのY座標の下限値
 
 
@@ -54,7 +55,6 @@ public class Bomb : MonoBehaviour
         // 爆弾を生成
         GameObject bomb = Instantiate(bombPrefab, shootPosition, Quaternion.identity);
 
-
         // 爆弾に力を加えてマウスの方向に発射
         Rigidbody2D rb = bomb.GetComponent<Rigidbody2D>();
 
@@ -65,8 +65,7 @@ public class Bomb : MonoBehaviour
         rb.velocity = shootDirection * bombSpeed;
 
         // BombMovement スクリプトを追加して、距離や壁に当たった場合の削除処理を行う
-        bomb.AddComponent<BombMovement>().Initialize(shootPosition, maxDistance);
-
+        bomb.AddComponent<BombMovement>().Initialize(shootDirection, maxDistance);
     }
 }
 
@@ -77,12 +76,13 @@ public class BombMovement : MonoBehaviour
     private float maxDistance; // 爆弾が消える最大距離
     [SerializeField] private float angle;
 
-    public void Initialize(Vector3 spawnPosition, float maxDistance)
+    public void Initialize(Vector3 mousePosition, float maxDistance)
     {
-        this.spawnPosition = spawnPosition;
+        this.spawnPosition = mousePosition;
         this.maxDistance = maxDistance;
-        Vector3 dist = Input.mousePosition - spawnPosition;
-        angle = Mathf.Atan2(dist.y, dist.x);
+
+        //
+        angle = Mathf.Atan2(mousePosition.y, mousePosition.x);
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle * Mathf.Rad2Deg - 90f));
     }
 

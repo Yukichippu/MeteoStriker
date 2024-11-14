@@ -81,7 +81,7 @@ public class BombMovement : MonoBehaviour
         this.spawnPosition = mousePosition;
         this.maxDistance = maxDistance;
 
-        //
+        //ここでマウスカーソルに向けて角度をつけて飛ばす
         angle = Mathf.Atan2(mousePosition.y, mousePosition.x);
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle * Mathf.Rad2Deg - 90f));
     }

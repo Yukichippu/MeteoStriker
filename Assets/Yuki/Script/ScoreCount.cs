@@ -22,7 +22,7 @@ public class ScoreCount : MonoBehaviour
         score = 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         objTag = collision.gameObject.tag;
         Debug.Log(objTag);

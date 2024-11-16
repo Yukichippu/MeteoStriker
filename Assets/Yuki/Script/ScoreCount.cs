@@ -1,10 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ScoreCount : MonoBehaviour
 {
-    [SerializeField] Text scoreText;
+    [SerializeField] private TextMeshProUGUI scoreText;
     private string objTag;
     int score = 0;
 
@@ -22,7 +21,7 @@ public class ScoreCount : MonoBehaviour
         score = 0;
     }
 
-    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         objTag = collision.gameObject.tag;
         Debug.Log(objTag);

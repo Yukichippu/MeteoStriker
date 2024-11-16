@@ -250,7 +250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -920.5, y: -508.5}
+  m_AnchoredPosition: {x: -963, y: -541}
   m_SizeDelta: {x: 259, y: 194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &428104504
@@ -266,11 +266,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorImage: {fileID: 428104505}
-  offset: {x: 0, y: 0}
-  minX: 40
-  maxX: 500
-  minY: 100
-  maxY: 40
+  offset: {x: 10, y: -10}
+  minX: 0
+  maxX: 1920
+  minY: 0
+  maxY: 1080
 --- !u!114 &428104505
 MonoBehaviour:
   m_ObjectHideFlags: 0

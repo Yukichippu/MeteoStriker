@@ -43,6 +43,11 @@ public class EnemyMove : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            if (gameObject.CompareTag("Enemy1") || gameObject.CompareTag("Enemy2"))
+            {
+                gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
+                Invoke("HitBack", 0.2f);
+            }//大きい敵と中くらいの敵の当たった時に色が変わる(0.2秒後に元に戻る)
             if (enemyType == EnemyType.EX)
             {
                 return;
@@ -76,4 +81,9 @@ public class EnemyMove : MonoBehaviour
             Destroy(this.gameObject);
         }//プレイヤーに当たった時に消える処理
     }
+
+    void HitBack()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = new Color32(255,255,255,255);
+    }//色を元に戻す処理
 }

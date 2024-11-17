@@ -17,7 +17,7 @@ public class BombExplosion : MonoBehaviour
     void Start()
     {
         //エネミータグを取得
-        enemys = GameObject.FindGameObjectsWithTag("Enemy");
+        //enemys = GameObject.FindGameObjectsWithTag("Enemy");
         //コライダーも判定を取得
         CircleCol2D = GetComponent<CircleCollider2D>();
 

@@ -3,22 +3,24 @@ using TMPro;
 
 public class ScoreCount : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
+    private TextMeshProUGUI scoreText;
+
     private string objTag;
     int score = 0;
 
     public void AddScore(int s)
     {
         Debug.Log(s);
-        score += s;
-        scoreText.text = "SCORE: " + score.ToString("");
+        int prevScore = int.Parse(scoreText.text);
+
+        prevScore += s;
+        scoreText.text = prevScore.ToString("");
         Debug.Log(score);
     }
    
-
     void Start()
     {
-        score = 0;
+        scoreText = GameObject.Find("Text (TMP)").GetComponent<TextMeshProUGUI>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

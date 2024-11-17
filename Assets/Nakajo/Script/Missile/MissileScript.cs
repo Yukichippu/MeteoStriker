@@ -20,7 +20,7 @@ public class MissileScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.tag);
-        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Bomb")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy1" || other.gameObject.tag == "Enemy2" || other.gameObject.tag == "Bomb")
         {
             Vector2 ExpPos = transform.position;
             Instantiate(ExpMissile, ExpPos, Quaternion.identity);

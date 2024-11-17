@@ -55,6 +55,7 @@ public class EnemyMove : MonoBehaviour
                 currentHP--;
             if(currentHP == 0)
             {
+
                 Destroy(this.gameObject);
             }
            

@@ -98604,7 +98604,7 @@ MonoBehaviour:
   - {fileID: 467535177}
   - {fileID: 1698063887}
   target: {fileID: 1772422484}
-  cycle: 1
+  cycle: 0.2
 --- !u!212 &1772422484 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 735840622553349152, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}

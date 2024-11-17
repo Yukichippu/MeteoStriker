@@ -48,16 +48,19 @@ public class EnemyMove : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
                 Invoke("HitBack", 0.2f);
             }//‘å‚«‚¢“G‚Æ’†‚­‚ç‚¢‚Ì“G‚Ì“–‚½‚Á‚½‚ÉF‚ª•Ï‚í‚é(0.2•bŒã‚ÉŒ³‚É–ß‚é)
+
             if (enemyType == EnemyType.EX)
             {
                 return;
-            }
+            }//BUllet‚ª”š”­‚Å‚µ‚©“|‚¹‚È‚¢“G‚É“–‚½‚Á‚½
+
                 currentHP--;
+
             if(currentHP == 0)
             {
 
                 Destroy(this.gameObject);
-            }
+            }//HP‚ª0‚É‚È‚Á‚½
            
         }//’e‚É“–‚½‚Á‚½‚ÉÁ‚¦‚éˆ—
 

@@ -64,10 +64,9 @@ public class BombExplosion : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("オブジェクトを破壊しました");
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy1" || other.gameObject.tag == "Enemy2")
         {
             isColliding = true;
-            Destroy(other.gameObject);
         }
     }
 

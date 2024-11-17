@@ -45,7 +45,7 @@ public class PlayerDamage : MonoBehaviour
     //エネミーに当たったら
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy" && !Invincible)
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy1" || other.gameObject.tag == "Enemy2" && !Invincible)
         {
             //Debug.Log("残機ー１");
             LifeCount -= 1;

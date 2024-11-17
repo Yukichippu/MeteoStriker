@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6212400926154722537}
   - component: {fileID: 7049028825914197311}
   - component: {fileID: 5602717866680169122}
+  - component: {fileID: -7793459283928242909}
   m_Layer: 0
   m_Name: PlayerEXP
   m_TagString: Untagged
@@ -4898,6 +4899,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-7793459283928242909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5209995237759202088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a5802925f07cd43895aa102a777527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7272696177557294139
 GameObject:
   m_ObjectHideFlags: 0

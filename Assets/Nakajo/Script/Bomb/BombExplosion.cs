@@ -30,7 +30,7 @@ public class BombExplosion : MonoBehaviour
         {
             //”š”­Œã‚ÉŽ©•ª‚ðíœ
             DestroyCount@+= Time.deltaTime;
-            if (DestroyCount > 10f)
+            if (DestroyCount > 0.5f)
             {
                 Destroy(this.gameObject);
             }

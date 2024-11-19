@@ -103,6 +103,7 @@ MonoBehaviour:
   maxDistance: 15
   nextSpawnTime: 0
   YPosition: 200
+  fireSound: {fileID: 8300000, guid: 2259d8f8f9aaad0448ef5e5a60e25b6e, type: 3}
 --- !u!1 &6548327011674422397
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,8 +205,8 @@ MonoBehaviour:
   bombSpeed: 12
   shootCooldown: 5
   maxDistance: 15
-  nextShootTime: 0
   YPosition: 200
+  fireSound: {fileID: 8300000, guid: 95548daac5fc21b45afacf468df61eff, type: 3}
 --- !u!1 &9112011917949623335
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  wideLength: 0
 --- !u!50 &9128496829734301500
 Rigidbody2D:
   serializedVersion: 4

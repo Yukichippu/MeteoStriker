@@ -10,7 +10,21 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float maxDistance = 10f; // 弾が消える最大距離
     [SerializeField] private float nextSpawnTime = 0f; // 次に弾を生成する時間
     [SerializeField] private float YPosition = 200f; // マウスのY座標の下限値
+    [SerializeField] private AudioClip fireSound; //発射音
 
+    private AudioSource audioSource;
+    void Start()
+    {
+        //AudioSourceを取得・アタッチ
+        audioSource = GetComponent<AudioSource>();
+        if( audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        //AudioSourceの設定
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+    }
     void Update()
     {
         // 時間が経過したら弾を生成
@@ -46,6 +60,20 @@ public class Bullet : MonoBehaviour
 
         // 弾に向かう方向と速度、消える最大距離を設定
         ball.GetComponent<BallMovement>().SetDirectionAndSpeed(direction, BulletSpeed, maxDistance, transform.position);
+
+        PlayFireSound();
+    }
+    void PlayFireSound()
+    {
+        if (fireSound != null && audioSource != null)
+        {
+            audioSource.volume = 0.05f;//音量調整
+            audioSource.PlayOneShot(fireSound);
+        }
+        else
+        {
+            Debug.LogWarning("効果音が設定されていないかAudioSounceが見つかりません");
+        }
     }
 }
 

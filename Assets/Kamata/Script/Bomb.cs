@@ -10,8 +10,22 @@ public class Bomb : MonoBehaviour
     [SerializeField] public float maxDistance = 15f; // 爆弾が消える最大距離
     //[SerializeField] private float nextShootTime = 0f; // 次に爆弾を生成する時間
     [SerializeField] private float YPosition = 200f; // マウスのY座標の下限値
+    [SerializeField] private AudioClip fireSound;
 
+    private AudioSource audioSource;
+    void Start()
+    {
+        // AudioSourceを取得・アタッチ
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
 
+        // AudioSourceの設定
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+    }
     void Update()
     {
         //// クールタイム中は爆弾を発射しない
@@ -66,6 +80,20 @@ public class Bomb : MonoBehaviour
 
         // BombMovement スクリプトを追加して、距離や壁に当たった場合の削除処理を行う
         bomb.AddComponent<BombMovement>().Initialize(shootDirection, maxDistance);
+        // 効果音を再生
+        PlayFireSound();
+    }
+    void PlayFireSound()
+    {
+        if (fireSound != null && audioSource != null)
+        {
+            audioSource.volume = 0.1f;
+            audioSource.PlayOneShot(fireSound);
+        }
+        else
+        {
+            Debug.LogWarning("効果音が設定されていないか、AudioSourceが見つかりません。");
+        }
     }
 }
 

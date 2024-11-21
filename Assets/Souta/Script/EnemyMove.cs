@@ -9,6 +9,7 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private float acceleration = 0.1f;//エネミーの落下速度を徐々に早くさせる数値
     [SerializeField] private float DeadPos = -6f;
     [SerializeField] private GameObject PlayerEXP;
+    [SerializeField] private GameObject EnemyEXP;
     private enum EnemyType
     {
         S,
@@ -58,7 +59,7 @@ public class EnemyMove : MonoBehaviour
 
             if(currentHP == 0)
             {
-
+                Instantiate(EnemyEXP, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }//HPが0になった時
            

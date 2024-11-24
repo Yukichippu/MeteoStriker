@@ -19655,7 +19655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431fdf7794de8024f963cb8c6dbf2e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bomb: {fileID: 0}
   BomSize: 2
   BomRadius: 0.6
   WaitTime: 0.3

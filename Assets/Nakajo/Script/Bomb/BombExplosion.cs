@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BombExplosion : MonoBehaviour
 {
-    public GameObject Bomb;//このスクリプトをアタッチするオブジェクト
     private GameObject[] enemys;//爆風で破壊するオブジェクト名
     CircleCollider2D CircleCol2D;//enemysを破壊するためのコライダー
     private float ColSizeCount = 0; //コライダーのサイズをカウント
@@ -30,7 +29,7 @@ public class BombExplosion : MonoBehaviour
         {
             //爆発後に自分を削除
             DestroyCount　+= Time.deltaTime;
-            if (DestroyCount > 0.5f)
+            if (DestroyCount > 1f)
             {
                 Destroy(this.gameObject);
             }

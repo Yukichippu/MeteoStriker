@@ -1708,6 +1708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyEXP()
       objectReference: {fileID: 0}
+    - target: {fileID: 6307821466877218230, guid: 38833917ae19ec64e96db2b0d6ab4f46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7119683195058396681, guid: 38833917ae19ec64e96db2b0d6ab4f46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1881,10 +1885,6 @@ PrefabInstance:
     - target: {fileID: 6047731700825997992, guid: ddd46135ecf3bc24ea234b5de68f8a85, type: 3}
       propertyPath: m_Name
       value: BombEXP
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047731700825997992, guid: ddd46135ecf3bc24ea234b5de68f8a85, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

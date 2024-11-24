@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Yuki/Title Scene.unity
+    path: Assets/main/Title Scene.unity
     guid: fe73cad1485d2224e85b63d0629fc759
   - enabled: 1
     path: Assets/Yuki/Tutorial.unity

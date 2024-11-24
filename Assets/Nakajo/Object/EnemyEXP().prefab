@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7119683195058396681}
+  - component: {fileID: 3242869584741856629}
   m_Layer: 0
   m_Name: EnemyEXP()
   m_TagString: Untagged
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 2909960773697414324}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3242869584741856629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6307821466877218230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6774e7f3a5f4f2448bc779c596768c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8270536528232319924
 GameObject:
   m_ObjectHideFlags: 0

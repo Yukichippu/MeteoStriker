@@ -232,10 +232,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorImage: {fileID: 583023756}
   offset: {x: 0, y: 0}
-  minX: 0
-  maxX: 1920
-  minY: 0
-  maxY: 1080
+  minX: 100
+  maxX: 1820
+  minY: 100
+  maxY: 980
 --- !u!1 &867066125
 GameObject:
   m_ObjectHideFlags: 0

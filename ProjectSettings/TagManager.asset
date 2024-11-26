@@ -11,6 +11,7 @@ TagManager:
   - Enemy1
   - Enemy2
   - Goal
+  - Clickable
   layers:
   - Default
   - TransparentFX

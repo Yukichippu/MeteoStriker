@@ -5,18 +5,27 @@ using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour
 {
-    public Text timeText;
-    float countDown = 3.0f;
+    [SerializeField] private Text countdownText;        //カウントを表示するコンポーネント
+    [SerializeField] private float delayCount = 1f;          //数字が変わる間隔
+    [SerializeField] private GameObject gameStartUI;    //表示するUI
     
     void Start()
     {
-        
+        StartCoroutine(StartCountdown());
     }
 
-   
-    void Update()
+    IEnumerator StartCountdown()
     {
-        countDown -= Time.deltaTime;
-        timeText.text = countDown.ToString();
+        for (int i = 3; i > 0; i--)
+        {
+            countdownText.text = i.ToString();
+            yield return new WaitForSeconds(delayCount);
+        }
+        countdownText.gameObject.SetActive(false);
+
+        if (gameStartUI != null)
+        {
+            gameStartUI.SetActive(true);
+        }
     }
 }

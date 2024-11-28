@@ -10,7 +10,9 @@ public class Missile_Gage : MonoBehaviour
     [SerializeField] Slider MissileGage; //UIのSliderをUnity内で挿入
     [SerializeField] private Text valuetext; // 現在のチャージ率を表示するText
 
-    [SerializeField] private Bomb bomb;  // 
+    [SerializeField] private Bomb bomb;
+
+    [SerializeField] private AudioClip sound;
 
     float chargeTime = 5f;
     float currentTime = 0f;
@@ -36,7 +38,10 @@ public class Missile_Gage : MonoBehaviour
 
     private void MissileCharge()
     {
-        if(isMaxGauge) { return; }
+        if(isMaxGauge) {
+            GetComponent<AudioSource>().PlayOneShot(sound);
+            return;
+        }
 
         if(currentTime >= chargeTime)
         {

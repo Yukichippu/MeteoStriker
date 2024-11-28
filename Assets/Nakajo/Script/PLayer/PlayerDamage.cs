@@ -16,6 +16,7 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField] GameObject[] hearts;//のハート
     [SerializeField] private SpriteRenderer target;// 点滅させる対象
     [SerializeField] private float cycle = 1;// 点滅周期[s]
+    [SerializeField] private AudioClip sound; //SE
 
     void Start()
     {
@@ -53,6 +54,7 @@ public class PlayerDamage : MonoBehaviour
             //無敵関数呼び出し
             StartInvincible();
             //DeadPlayer();
+            GetComponent<AudioSource>().PlayOneShot(sound);
         }
     }
 

@@ -814,7 +814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7723186194987255617, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.180272
+      value: -1.086087
       objectReference: {fileID: 0}
     - target: {fileID: 7769196188485311481, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -98647,6 +98647,7 @@ MonoBehaviour:
   - {fileID: 1698063887}
   target: {fileID: 1772422484}
   cycle: 1
+  sound: {fileID: 0}
 --- !u!212 &1772422484 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 735840622553349152, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
@@ -98770,6 +98771,7 @@ MonoBehaviour:
   MissileGage: {fileID: 1821253331}
   valuetext: {fileID: 1717317236}
   bomb: {fileID: 239355056}
+  sound: {fileID: 0}
 --- !u!1 &1872896848
 GameObject:
   m_ObjectHideFlags: 0

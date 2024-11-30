@@ -14,7 +14,7 @@ public class Missile_Gage : MonoBehaviour
 
     [SerializeField] private AudioClip sound;
 
-    float chargeTime = 5f;
+    float chargeTime = 3.6f;
     float currentTime = 0f;
     bool isMaxGauge = false;
 

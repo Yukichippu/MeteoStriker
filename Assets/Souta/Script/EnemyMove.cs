@@ -10,6 +10,9 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private float DeadPos = -6f;
     [SerializeField] private GameObject PlayerEXP;
     [SerializeField] private GameObject EnemyEXP;
+    [SerializeField] private AudioClip Dfsound; //通常のエネミーのSE
+    [SerializeField] private AudioClip Exsound; //爆発するエネミーのSE
+
     private enum EnemyType
     {
         S,
@@ -22,6 +25,7 @@ public class EnemyMove : MonoBehaviour
     private void Start()
     {
         currentHP = hpList[(int)enemyType];
+
     }
     void Update()
     {
@@ -37,6 +41,8 @@ public class EnemyMove : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Vector3 EnemyPos = transform.position;
+
         if (collision.gameObject.CompareTag("Bomb"))
         {
             Destroy(this.gameObject);
@@ -60,6 +66,7 @@ public class EnemyMove : MonoBehaviour
             if(currentHP == 0)
             {
                 Instantiate(EnemyEXP, transform.position, Quaternion.identity);
+                AudioSource.PlayClipAtPoint(Dfsound, EnemyPos);
                 Destroy(this.gameObject);
             }//HPが0になった時
            
@@ -72,6 +79,7 @@ public class EnemyMove : MonoBehaviour
                 currentHP--;
                 if (currentHP == 0)
                 {
+                    AudioSource.PlayClipAtPoint(Exsound, EnemyPos);
                     Destroy(this.gameObject);
                 }
              }//爆弾でしか倒せない敵の消滅処理

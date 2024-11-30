@@ -98911,7 +98911,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821253329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e60b77b111832a746a971ba80c3a1e5e, type: 3}
   m_Name: 
@@ -98919,6 +98919,7 @@ MonoBehaviour:
   MissileGage: {fileID: 1821253331}
   valuetext: {fileID: 1717317236}
   bomb: {fileID: 0}
+  sound: {fileID: 0}
 --- !u!1 &1872896848
 GameObject:
   m_ObjectHideFlags: 0

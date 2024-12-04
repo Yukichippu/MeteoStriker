@@ -1019,6 +1019,7 @@ GameObject:
   - component: {fileID: 324469251}
   - component: {fileID: 324469250}
   - component: {fileID: 324469252}
+  - component: {fileID: 324469253}
   m_Layer: 0
   m_Name: Goal point
   m_TagString: Goal
@@ -1087,7 +1088,7 @@ Transform:
   m_GameObject: {fileID: 324469249}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 480, z: 10}
+  m_LocalPosition: {x: 0, y: 21.3, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1138,6 +1139,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &324469253
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324469249}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &365061143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1146,6 +1174,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 687240243575726366, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 735840622553349152, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -1233,6 +1265,10 @@ PrefabInstance:
     - target: {fileID: 7769196188485311481, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112011917949623335, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9112011917949623335, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
       propertyPath: m_TagString
@@ -3636,6 +3672,17 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 735840622553349152, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
   m_PrefabInstance: {fileID: 365061143}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1772422488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6847733386146667796, guid: 55f214a878fd5d1449ea07f196257abd, type: 3}
+  m_PrefabInstance: {fileID: 365061143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772422474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563739fa33f748d4a9af857f1b5c8f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1821253329
 GameObject:
   m_ObjectHideFlags: 0
@@ -4460,9 +4507,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2125108260}
   - component: {fileID: 2125108259}
-  - component: {fileID: 2125108261}
   - component: {fileID: 2125108262}
   - component: {fileID: 2125108263}
+  - component: {fileID: 2125108264}
   m_Layer: 0
   m_Name: sonar
   m_TagString: Untagged
@@ -4538,18 +4585,6 @@ Transform:
   - {fileID: 619250479}
   m_Father: {fileID: 1693301868}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2125108261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125108258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4d2d8b623b7bb94ea122e65ab949187, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &2125108262
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4622,6 +4657,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2125108264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125108258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5adeeda9f34bc42a402fded57e3e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1772422488}
 --- !u!1 &2138755994
 GameObject:
   m_ObjectHideFlags: 0

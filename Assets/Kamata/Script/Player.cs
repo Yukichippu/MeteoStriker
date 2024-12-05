@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     //Clear後のPlayerの変数
     private bool isCenter = false;                      //真ん中に移動したか確認
-    private bool isGoal = false;
+    private bool isGoal = false;                        //ゴールしたか確認
     [SerializeField] private float Cl_moveSpeed = 0.4f;
     private float Cl_addSpeed = 0.035f;                 //加速度
     Vector3 Cl_targetPosition = new Vector3(0, 14, 0);  //Payerを退場させる座標
@@ -99,6 +99,5 @@ public class Player : MonoBehaviour
 
         Transform objectTransform = gameObject.GetComponent<Transform>();
         objectTransform.position = Vector3.Lerp(objectTransform.position, Cl_targetPosition, Cl_moveSpeed * Time.deltaTime);
-
     }
 }

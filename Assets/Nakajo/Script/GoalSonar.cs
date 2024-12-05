@@ -23,8 +23,15 @@ public class GoalSonar : MonoBehaviour
         if(other.gameObject.CompareTag("Goal"))
         {
             Debug.Log("�Ă΂ꂽ");
-            player.GoalPlayer();
-            clearUI.isGoal();  
+            StartCoroutine(WaitGoalTime());
+           
         }
+    }
+
+    private IEnumerator WaitGoalTime()
+    {
+        yield return new WaitForSeconds(7f);
+        player.GoalPlayer();
+        clearUI.isGoal();
     }
 }

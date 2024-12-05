@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GoalSonar : MonoBehaviour
 {
-   public Player player;
+    public Player player;
+    public ClearUI clearUI;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        clearUI = GameObject.FindWithTag("GameClear").GetComponent<ClearUI>();
     }
 
     void Update()
@@ -20,8 +22,9 @@ public class GoalSonar : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Goal"))
         {
-             Debug.Log("�Ă΂ꂽ");
-             player.GoalPlayer();
+            Debug.Log("�Ă΂ꂽ");
+            player.GoalPlayer();
+            clearUI.isGoal();  
         }
     }
 }

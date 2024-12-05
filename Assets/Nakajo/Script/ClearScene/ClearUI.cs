@@ -8,11 +8,11 @@ public class ClearUI : MonoBehaviour
     [SerializeField ]private float MoveSpeed = 0.2f;    //“®‚­‘¬‚³
     Vector3 targetPosition = new Vector3(960, 540, 0);  //‚±‚ÌÀ•W‚Ü‚Åi‚Ş
 
-    private bool OnMove = false;    //‚Q•bŒo‚Á‚½‚©‚ğ”»’è
+    public bool OnMove = false;    //‚Q•bŒo‚Á‚½‚©‚ğ”»’è
 
     private void Start()
     {
-        StartCoroutine(WaitAndStartMovement(2f));
+        
     }
     void Update()
     {
@@ -27,5 +27,10 @@ public class ClearUI : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         OnMove = true;
+    }
+
+    public void isGoal()
+    {
+        StartCoroutine(WaitAndStartMovement(7f));
     }
 }

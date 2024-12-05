@@ -22,7 +22,7 @@ public class ClearPlayer : MonoBehaviour
             GoPlayer();
         }
     }
-        void CenterPlayer()
+    void CenterPlayer()
     {
         if (MoveSpeed < 5)  //‰Á‘¬‚³‚¹‚é
         {

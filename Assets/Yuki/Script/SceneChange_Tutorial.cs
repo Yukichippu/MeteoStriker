@@ -5,6 +5,6 @@ public class SceneChange_Tutorial : MonoBehaviour
 {
     public void PushButton()
     {
-        SceneManager.LoadScene("Tutorial Scene");
+        SceneManager.LoadScene("Tutorial");
     }
 }

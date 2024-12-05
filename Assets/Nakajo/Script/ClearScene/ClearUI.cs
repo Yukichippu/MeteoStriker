@@ -31,6 +31,6 @@ public class ClearUI : MonoBehaviour
 
     public void isGoal()
     {
-        StartCoroutine(WaitAndStartMovement(7f));
+        StartCoroutine(WaitAndStartMovement(20f));
     }
 }

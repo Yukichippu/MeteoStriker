@@ -58,6 +58,9 @@ TagManager:
   - name: Bulleet
     uniqueID: 777101685
     locked: 0
+  - name: Title
+    uniqueID: 4122125183
+    locked: 0
   - name: Bomb
     uniqueID: 1923011457
     locked: 0

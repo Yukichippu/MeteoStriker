@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -12,7 +8,7 @@ public class PlayerDamage : MonoBehaviour
     private float InvincibleTime = 0;   //無敵時間のカウント
     private PolygonCollider2D Col;             //コライダーの取得
     private double time;
-    [Tooltip("無敵の時間")][SerializeField]private float InvincibleEnd = 1f;
+    [Tooltip("無敵の時間")][SerializeField] private float InvincibleEnd = 1f;
     [SerializeField] GameObject[] hearts;//のハート
     [SerializeField] private SpriteRenderer target;// 点滅させる対象
     [SerializeField] private float cycle = 1;// 点滅周期[s]
@@ -33,7 +29,7 @@ public class PlayerDamage : MonoBehaviour
 
             // 内部時刻を経過させる
             time += Time.deltaTime;
-            if(time >= cycle)
+            if (time >= cycle)
             {
                 target.enabled = !target.enabled;
                 time = 0f;
@@ -64,7 +60,7 @@ public class PlayerDamage : MonoBehaviour
         //Debug.Log("無敵開始");
         Invincible = true;
         //コライダーをOFF
-        if(Invincible == true)
+        if (Invincible == true)
         {
             Col.enabled = false;
         }
@@ -75,7 +71,6 @@ public class PlayerDamage : MonoBehaviour
     {
         if (InvincibleTime > InvincibleEnd)
         {
-            //Debug.Log("無敵終了");
             target.enabled = true;
             Invincible = false;
             //コライダーをON
@@ -84,7 +79,7 @@ public class PlayerDamage : MonoBehaviour
             InvincibleTime = 0;
         }
     }
-   
+
     //プレイヤーの死亡を判断する関数
     private void DeadPlayer()
     {
@@ -97,9 +92,9 @@ public class PlayerDamage : MonoBehaviour
 
     private void PlayerLifeUI()
     {
-        for(int i = 0; i < hearts.Length; i++)
+        for (int i = 0; i < hearts.Length; i++)
         {
-            if(i + 1 <= LifeCount) hearts[i].gameObject.SetActive(true);
+            if (i + 1 <= LifeCount) hearts[i].gameObject.SetActive(true);
             else hearts[i].gameObject.SetActive(false);
         }
     }

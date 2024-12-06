@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class ClearUI : MonoBehaviour
 {
+    [SerializeField] private AudioClip clBGM;           //ClearBGM
     [SerializeField ]private float MoveSpeed = 0.2f;    //ìÆÇ≠ë¨Ç≥
     Vector3 targetPosition = new Vector3(960, 540, 0);  //Ç±ÇÃç¿ïWÇ‹Ç≈êiÇﬁ
 
-    public bool OnMove = false;    //ÇQïbåoÇ¡ÇΩÇ©ÇîªíË
+    public bool OnMove = false;                         //ÇQïbåoÇ¡ÇΩÇ©ÇîªíË
 
     private void Start()
     {
@@ -27,10 +28,11 @@ public class ClearUI : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         OnMove = true;
+        GetComponent<AudioSource>().PlayOneShot(clBGM);
     }
 
     public void isGoal()
     {
-        StartCoroutine(WaitAndStartMovement(20f));
+        StartCoroutine(WaitAndStartMovement(2f));
     }
 }

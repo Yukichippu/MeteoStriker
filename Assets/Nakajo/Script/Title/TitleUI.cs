@@ -6,7 +6,7 @@ public class TitleUI : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 0;
     [SerializeField] float addSpeed = 0;
-    Vector3 targetPosition = new Vector3(960, 540, 0);
+    Vector3 targetPosition = new Vector3(1164, 759, 0);
     [SerializeField] float stop = 0.01f;
     void Start()
     {

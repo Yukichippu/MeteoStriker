@@ -6,7 +6,7 @@ public class ScoreCount : MonoBehaviour
     private TextMeshProUGUI scoreText;
 
     private string objTag;
-    int score = 0;
+    public int score = 0;
 
     public void AddScore(int s)
     {
@@ -41,4 +41,6 @@ public class ScoreCount : MonoBehaviour
             gameObject.GetComponent<ScoreCount>().AddScore(100);
         }
     }
+
+    public int GetScore() { return score; }
 }

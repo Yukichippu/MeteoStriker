@@ -25,41 +25,41 @@ public class EnemySave : MonoBehaviour
         get { return enemyDatas; }
     }
 
-    public void SaveEnemies()
-    {
-        enemyDatas = new List<EnemyData>();
-        foreach (Transform enemy in GetComponentsInChildren<Transform>())
-        {
-            GameObject prefab = (GameObject)PrefabUtility.GetCorrespondingObjectFromSource(enemy.gameObject);
-            if (prefab != null)
-            {
-                EnemyData enemyData = new EnemyData(enemy.position, prefab);
-                enemyDatas.Add(enemyData);
-            }
-        }
-        enemyDatas.Sort((a, b) =>
-        {
-            float v = a.position.y - b.position.y;
-            if (v > 0) return 1;
-            else return -1;
-        });
-    }
+    //public void SaveEnemies()
+    //{
+    //    enemyDatas = new List<EnemyData>();
+    //    foreach (Transform enemy in GetComponentsInChildren<Transform>())
+    //    {
+    //        GameObject prefab = (GameObject)PrefabUtility.GetCorrespondingObjectFromSource(enemy.gameObject);
+    //        if (prefab != null)
+    //        {
+    //            EnemyData enemyData = new EnemyData(enemy.position, prefab);
+    //            enemyDatas.Add(enemyData);
+    //        }
+    //    }
+    //    enemyDatas.Sort((a, b) =>
+    //    {
+    //        float v = a.position.y - b.position.y;
+    //        if (v > 0) return 1;
+    //        else return -1;
+    //    });
+    //}
 }
 
 
-#if UNITY_EDITOR
-[CustomEditor(typeof(EnemySave))]
-    public class CreateInstanceByPropertyChangeSampleEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-            serializedObject.Update();
+//#if UNITY_EDITOR
+//[CustomEditor(typeof(EnemySave))]
+//    public class CreateInstanceByPropertyChangeSampleEditor : Editor
+//    {
+//        public override void OnInspectorGUI()
+//        {
+//            base.OnInspectorGUI();
+//            serializedObject.Update();
 
-            if (GUILayout.Button("マップの保存"))
-            {
-                ((EnemySave)target).SaveEnemies();
-            }
-        }
-    }
-#endif
+//            if (GUILayout.Button("マップの保存"))
+//            {
+//                ((EnemySave)target).SaveEnemies();
+//            }
+//        }
+//    }
+//#endif

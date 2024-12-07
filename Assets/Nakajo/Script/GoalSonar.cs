@@ -34,6 +34,6 @@ public class GoalSonar : MonoBehaviour
         clearUI.isGoal();
 
         yield return new WaitForSeconds(10f);
-        SceneManager.LoadScene("ResultScene");
+        SceneManager.LoadScene("Title");
     }
 }

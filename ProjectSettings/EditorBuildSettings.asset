@@ -17,7 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Yuki/GameOver Scene.unity
     guid: 169acd0b9408e48408acb98682831073
-  - enabled: 1
-    path: Assets/Nakajo/Scene/ResultScene.unity
-    guid: d6af903c4302de242b0279853d6d720b
   m_configObjects: {}
